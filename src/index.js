@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import CssBaseline from "@mui/material/CssBaseline";
+import darkScrollbar from "@mui/material/darkScrollbar";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+	typography: {
+		text: { color: "#C6D3E7" },
+	},
+	paper: { root: { backgroundColor: "red" } },
+	components: {
+		MuiCssBaseline: {
+			styleOverrides: {
+				body: {
+					...darkScrollbar(),
+					color: "white",
+					backgroundColor: "#07080A",
+					"& h1": {
+						color: "white",
+					},
+				},
+			},
+		},
+		MuiPaper: { styleOverrides: { root: { backgroundColor: "#0E1624" } } },
+	},
+});
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+	<React.StrictMode>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
+			<App />
+		</ThemeProvider>
+	</React.StrictMode>,
+	document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
