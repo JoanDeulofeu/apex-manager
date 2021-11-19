@@ -1,0 +1,16 @@
+{
+	"name": "apex-manager-backend",
+	"version": "1.0.0",
+	"description": "Backend de l'Apex Manager",
+	"main": "index.js",
+	"scripts": {
+		"start": "dotenv -e .env.local node src/index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"author": "Gehin Joan",
+	"license": "ISC",
+	"dependencies": {
+		"@hapi/hapi": "^20.2.1",
+		"node-fetch": "^3.0.0"
+	}
+}
